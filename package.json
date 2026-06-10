@@ -1,0 +1,25 @@
+{
+  "packageManager": "pnpm@10.28.1",
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "preview": "next build && wrangler pages dev out",
+    "deploy": "next build && wrangler pages deploy out",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "next": "^16",
+    "react": "^19",
+    "react-dom": "^19"
+  },
+  "devDependencies": {
+    "typescript": "latest",
+    "@types/node": "latest",
+    "@types/react": "latest",
+    "@types/react-dom": "latest",
+    "@cloudflare/workers-types": "latest",
+    "wrangler": "latest",
+    "prettier": "latest"
+  }
+}

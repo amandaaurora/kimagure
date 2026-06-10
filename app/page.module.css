@@ -1,0 +1,285 @@
+.body {
+  font-family: var(--font-courier), ui-monospace, 'Courier New', monospace;
+  color: var(--ink);
+  background: #ffffff;
+  min-height: 100vh;
+  min-height: 100svh;
+  display: flex;
+  align-items: stretch;
+  justify-content: center;
+  padding: clamp(0.5rem, 1.5vw, 1rem);
+}
+
+/* ── The card ── */
+.card {
+  position: relative;
+  width: min(100%, 1320px);
+  border-radius: clamp(20px, 4vw, 34px);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(255, 255, 255, 0.55);
+  background: url('/caprichos-bg.webp') right top / cover no-repeat;
+}
+
+.topbar {
+  position: relative;
+  z-index: 1;
+  padding: clamp(1rem, 3vw, 1.75rem) clamp(1.25rem, 4vw, 2.5rem);
+  font-size: clamp(0.7rem, 2vw, 0.85rem);
+  letter-spacing: 0.32em;
+  text-transform: lowercase;
+  color: var(--ink-soft);
+  font-weight: 400;
+}
+
+.hero {
+  position: relative;
+  z-index: 1;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 1.5rem;
+  gap: clamp(1.5rem, 5vw, 2.75rem);
+}
+
+/* ── Signature: the washi tape ── */
+.tape {
+  position: relative;
+  display: inline-block;
+  padding: clamp(0.7rem, 2.5vw, 1.5rem) clamp(1.6rem, 6vw, 4rem);
+  background:
+    linear-gradient(
+      174deg,
+      rgba(255, 255, 255, 0.35) 0%,
+      rgba(255, 255, 255, 0.05) 30%,
+      transparent 55%,
+      rgba(110, 100, 40, 0.12) 100%
+    ),
+    var(--tape);
+  transform: rotate(-2.2deg);
+  clip-path: polygon(
+    1% 6%,
+    22% 1%,
+    48% 4%,
+    74% 0%,
+    99% 5%,
+    100% 38%,
+    98% 64%,
+    100% 92%,
+    76% 99%,
+    50% 96%,
+    23% 100%,
+    2% 95%,
+    0% 60%,
+    2% 34%
+  );
+  filter: drop-shadow(0 12px 18px var(--tape-shadow))
+    drop-shadow(0 3px 5px rgba(0, 0, 0, 0.12));
+}
+
+.tape::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    96deg,
+    rgba(255, 255, 255, 0.1) 0 2px,
+    transparent 2px 9px
+  );
+  mix-blend-mode: overlay;
+  pointer-events: none;
+}
+
+.tapeWord {
+  position: relative;
+  z-index: 1;
+  display: inline-block;
+  font-family: var(--font-mochiy), system-ui, sans-serif;
+  font-weight: 400;
+  font-size: clamp(3.1rem, 15vw, 8.5rem);
+  line-height: 1;
+  color: var(--word);
+  -webkit-text-fill-color: var(--word);
+  -webkit-text-stroke: clamp(3px, 0.85vw, 6px) #ffffff;
+  paint-order: stroke fill;
+}
+
+/* each character on its own height + slight tilt = playful, hand-placed */
+.ch {
+  display: inline-block;
+  text-shadow: 0 4px 10px rgba(80, 100, 160, 0.18);
+}
+
+.ch:nth-child(1) {
+  transform: translateY(-0.12em) rotate(-5deg);
+}
+
+.ch:nth-child(2) {
+  transform: translateY(0.1em) rotate(4deg);
+}
+
+.ch:nth-child(3) {
+  transform: translateY(-0.05em) rotate(-3deg);
+}
+
+.ch:nth-child(4) {
+  transform: translateY(0.14em) rotate(6deg);
+}
+
+/* ── Typing gloss line ── */
+.gloss {
+  font-size: clamp(1.05rem, 4.2vw, 1.85rem);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  color: var(--ink-soft);
+  min-height: 1.4em;
+}
+
+.caret {
+  font-weight: 700;
+  margin-left: 0.08em;
+  animation: blink 1.05s steps(1) infinite;
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+/* ── Email / contact, pinned low ── */
+.footer {
+  position: relative;
+  z-index: 1;
+  text-align: center;
+  padding: clamp(1.25rem, 4vw, 2.5rem) 1rem;
+}
+
+/* Container — anchor for sparks */
+.contact {
+  position: relative;
+  display: inline-block;
+}
+
+/* White reveal pill — now a <button> */
+.pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  border-radius: 999px;
+  padding: 0.55rem 1.1rem;
+  border: 2px solid transparent;
+  background: none;
+  font: inherit;
+  color: var(--ink-soft);
+  cursor: pointer;
+  font-size: clamp(0.95rem, 3.6vw, 1.1rem);
+  letter-spacing: 0.06em;
+  transition:
+    background 0.18s ease,
+    border-color 0.18s ease,
+    color 0.18s ease,
+    box-shadow 0.18s ease;
+}
+
+.pill:focus-visible {
+  outline: 2px solid var(--word);
+  outline-offset: 2px;
+}
+
+.contact.ready:hover .pill,
+.contact.ready:focus-within .pill {
+  background: #ffffff;
+  border-color: #8fb0f5;
+  color: #33343a;
+  box-shadow: 0 6px 18px rgba(80, 100, 160, 0.12);
+}
+
+/* "say hello" — visible by default, hidden on reveal */
+.sayHello {
+  display: inline;
+}
+
+.contact.ready:hover .sayHello,
+.contact.ready:focus-within .sayHello {
+  display: none;
+}
+
+/* Email row (mounts after reveal) — hidden unless hovering/focused */
+.emailRow {
+  display: none;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.contact.ready:hover .emailRow,
+.contact.ready:focus-within .emailRow {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Email address text */
+.addr {
+  font-family: var(--font-courier), ui-monospace, monospace;
+  letter-spacing: 0.02em;
+  color: inherit;
+}
+
+/* Shared icon sizing */
+.icon {
+  width: 1.05em;
+  height: 1.05em;
+  color: var(--ink-soft);
+  flex-shrink: 0;
+}
+
+/* Spark clusters — fixed-size, absolutely positioned at pill corners */
+.sparkTL {
+  position: absolute;
+  top: -15px;
+  left: -13px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.sparkBR {
+  position: absolute;
+  bottom: -15px;
+  right: -13px;
+  opacity: 0;
+  transition: opacity 0.18s ease;
+  pointer-events: none;
+}
+
+.contact.ready:hover .sparkTL,
+.contact.ready:focus-within .sparkTL,
+.contact.ready:hover .sparkBR,
+.contact.ready:focus-within .sparkBR {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .pill,
+  .sparkTL,
+  .sparkBR {
+    transition: none;
+  }
+}
+
+@media (max-width: 420px) {
+  .tape {
+    transform: rotate(-1.4deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .caret {
+    animation: none;
+  }
+}

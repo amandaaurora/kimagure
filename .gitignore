@@ -1,0 +1,24 @@
+# Dependencies
+node_modules/
+
+# Next.js build output
+.next/
+out/
+next-env.d.ts
+*.tsbuildinfo
+
+# Cloudflare / wrangler
+.wrangler/
+
+# Secrets — never commit
+.dev.vars
+.env*
+
+# OS
+.DS_Store
+
+# Claude Code / agent tooling & internal working docs (keep out of the repo)
+.claude/
+.mcp.json
+docs/superpowers/
+HANDOFF.md

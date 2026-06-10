@@ -1,0 +1,20 @@
+:root {
+  --tape: rgba(241, 229, 150, 0.62);
+  --tape-shadow: rgba(120, 110, 40, 0.28);
+  --word: #acc8fe;
+  --ink: #0b83cf;
+  --ink-soft: rgba(11, 131, 207, 0.62);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
