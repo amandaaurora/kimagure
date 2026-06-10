@@ -5,6 +5,8 @@ import { useEffect, useState } from 'react'
 const phrases = [
   'caprichos · whims',
   'serious play',
+  'made fro',
+  'made for fun',
   'made for the fun of it',
   'whim-driven development',
 ]
