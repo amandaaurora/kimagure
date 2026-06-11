@@ -1,4 +1,8 @@
 :root {
+  /* Render light-only; opt out of mobile browsers' forced/auto dark mode
+     (Android Chrome "Auto Dark Theme", Samsung Internet) which would otherwise
+     algorithmically darken this light pastel design. */
+  color-scheme: only light;
   --tape: rgba(241, 229, 150, 0.62);
   --tape-shadow: rgba(120, 110, 40, 0.28);
   --word: #acc8fe;
